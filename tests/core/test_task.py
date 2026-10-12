@@ -406,7 +406,7 @@ def test_task_ext_attr(
     m_plugin.return_value.read_file.return_value = expected
     m_raw_script.return_value = val
     task = Task("test_task_ext_attr", "test_task_ext_attr")
-    assert expected == getattr(task, "raw_script")
+    assert expected == task.raw_script
 
 
 @pytest.mark.parametrize(

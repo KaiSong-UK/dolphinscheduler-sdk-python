@@ -111,15 +111,15 @@ class SwitchCondition(Base):
                 )
             if isinstance(condition, Default):
                 self._DEFINE_ATTR.add("next_node")
-                setattr(self, "next_node", condition.next_node)
+                self.next_node = condition.next_node
                 num_branch_default += 1
             elif isinstance(condition, Branch):
                 result.append(condition.get_define())
         # Handle switch default branch, default value is `""` if not provide.
         if num_branch_default == 0:
             self._DEFINE_ATTR.add("next_node")
-            setattr(self, "next_node", "")
-        setattr(self, "depend_task_list", result)
+            self.next_node = ""
+        self.depend_task_list = result
 
     def get_define(self, camel_attr=True) -> dict:
         """Overwrite Base.get_define to get task Condition specific get define."""
