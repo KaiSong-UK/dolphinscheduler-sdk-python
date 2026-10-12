@@ -79,7 +79,7 @@ def test_task_obtain_res_plugin(
         task_type="type",
         resource_plugin=Local(str(res_plugin_prefix)),
     )
-    assert expected == getattr(task, "raw_script")
+    assert expected == task.raw_script
 
 
 @pytest.mark.parametrize(

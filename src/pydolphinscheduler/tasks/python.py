@@ -77,7 +77,7 @@ class Python(WorkerResourceMixin, BatchTask):
         Attribute ``self.definition`` almost is a function, we need to call this function after parsing it
         to string. The easier way to call a function is using syntax ``func()`` and we use it to call it too.
         """
-        definition = getattr(self, "definition")
+        definition = self.definition
         if isinstance(definition, types.FunctionType):
             loc = definition.__code__.co_filename
             extractor = Extractor(Path(loc).open("r").read())
@@ -99,10 +99,10 @@ class Python(WorkerResourceMixin, BatchTask):
     @property
     def raw_script(self) -> str:
         """Get python task define attribute `raw_script`."""
-        if isinstance(getattr(self, "definition"), (str, types.FunctionType)):
+        if isinstance(self.definition, (str, types.FunctionType)):
             return self._build_exe_str()
         else:
             raise PyDSParamException(
                 "Parameter definition do not support % for now.",
-                type(getattr(self, "definition")),
+                type(self.definition),
             )
