@@ -178,7 +178,7 @@ def test_resources_local_python_command_content(
 ):
     """Test task Python definition content through the local resource plug-in."""
     python = Python(**attr)
-    assert expect == getattr(python, "definition")
+    assert expect == python.definition
 
 
 @pytest.mark.parametrize(

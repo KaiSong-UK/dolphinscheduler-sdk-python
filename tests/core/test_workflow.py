@@ -139,7 +139,7 @@ def test_set_release_state(value, expect):
     """Test workflow set release_state attributes."""
     with Workflow(TEST_WORKFLOW_NAME, release_state=value) as workflow:
         assert (
-            getattr(workflow, "release_state") == expect
+            workflow.release_state == expect
         ), "Workflow set attribute release_state do not return expect value."
 
 
@@ -155,7 +155,7 @@ def test_set_online_schedule(value, expect):
     """Test workflow set online_schedule attributes."""
     with Workflow(TEST_WORKFLOW_NAME, **value) as workflow:
         assert (
-            getattr(workflow, "online_schedule") == expect
+            workflow.online_schedule == expect
         ), f"Workflow attribute online_schedule do not in expect value with case {value}."
 
 

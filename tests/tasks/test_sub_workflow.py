@@ -92,10 +92,9 @@ def test_sub_workflow_get_define(mock_workflow_definition):
     with patch(
         "pydolphinscheduler.core.task.Task.gen_code_and_version",
         return_value=(code, version),
-    ):
-        with Workflow(TEST_WORKFLOW_NAME):
-            sub_workflow = SubWorkflow(name, TEST_SUB_WORKFLOW_NAME)
-            assert sub_workflow.task_params == expect_task_params
+    ), Workflow(TEST_WORKFLOW_NAME):
+        sub_workflow = SubWorkflow(name, TEST_SUB_WORKFLOW_NAME)
+        assert sub_workflow.task_params == expect_task_params
 
 
 @patch(
@@ -124,14 +123,13 @@ def test_deprecated_sub_workflow_get_define(mock_workflow_definition):
     with patch(
         "pydolphinscheduler.core.task.Task.gen_code_and_version",
         return_value=(code, version),
-    ):
-        with warnings.catch_warnings(record=True) as w:
-            from pydolphinscheduler.tasks.sub_process import SubProcess
+    ), warnings.catch_warnings(record=True) as w:
+        from pydolphinscheduler.tasks.sub_process import SubProcess
 
-            assert len(w) == 1
-            assert issubclass(w[-1].category, DeprecationWarning)
-            assert "deprecated" in str(w[-1].message)
+        assert len(w) == 1
+        assert issubclass(w[-1].category, DeprecationWarning)
+        assert "deprecated" in str(w[-1].message)
 
-            with Workflow(TEST_WORKFLOW_NAME):
-                sub_workflow = SubProcess(name, TEST_SUB_WORKFLOW_NAME)
-                assert sub_workflow.task_params == expect_task_params
+        with Workflow(TEST_WORKFLOW_NAME):
+            sub_workflow = SubProcess(name, TEST_SUB_WORKFLOW_NAME)
+            assert sub_workflow.task_params == expect_task_params

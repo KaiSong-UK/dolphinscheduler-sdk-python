@@ -134,8 +134,8 @@ def test_switch_condition_set_define_attr_default():
     task = Task(TEST_NAME, TEST_TYPE)
     switch_condition = SwitchCondition(Default(task))
     switch_condition.set_define_attr()
-    assert getattr(switch_condition, "next_node") == task.code
-    assert getattr(switch_condition, "depend_task_list") == []
+    assert switch_condition.next_node == task.code
+    assert switch_condition.depend_task_list == []
 
 
 def test_switch_condition_set_define_attr_branch():
@@ -150,8 +150,8 @@ def test_switch_condition_set_define_attr_branch():
     ]
 
     switch_condition.set_define_attr()
-    assert getattr(switch_condition, "next_node") == ""
-    assert getattr(switch_condition, "depend_task_list") == expect
+    assert switch_condition.next_node == ""
+    assert switch_condition.depend_task_list == expect
 
 
 def test_switch_condition_set_define_attr_mix_branch_and_default():
@@ -166,8 +166,8 @@ def test_switch_condition_set_define_attr_mix_branch_and_default():
     ]
 
     switch_condition.set_define_attr()
-    assert getattr(switch_condition, "next_node") == task.code
-    assert getattr(switch_condition, "depend_task_list") == expect
+    assert switch_condition.next_node == task.code
+    assert switch_condition.depend_task_list == expect
 
 
 def test_switch_condition_get_define_default():

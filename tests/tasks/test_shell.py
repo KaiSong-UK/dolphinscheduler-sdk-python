@@ -111,7 +111,7 @@ def test_resources_local_shell_command_content(
 ):
     """Test task shell task command content through the local resource plug-in."""
     task = Shell(**attr)
-    assert expect == getattr(task, "raw_script")
+    assert expect == task.raw_script
 
 
 @pytest.mark.parametrize(
