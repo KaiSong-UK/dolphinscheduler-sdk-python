@@ -23,4 +23,4 @@ from pydolphinscheduler.resources_plugin.local import Local
 from pydolphinscheduler.resources_plugin.oss import OSS
 from pydolphinscheduler.resources_plugin.s3 import S3
 
-__all__ = ["Local", "GitHub", "GitLab", "OSS", "S3"]
+__all__ = ["OSS", "S3", "GitHub", "GitLab", "Local"]

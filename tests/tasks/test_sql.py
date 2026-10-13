@@ -214,4 +214,4 @@ def test_resources_local_sql_command_content(
 ):
     """Test sql content through the local resource plug-in."""
     sql = Sql(**attr)
-    assert expect == getattr(sql, "sql")
+    assert expect == sql.sql

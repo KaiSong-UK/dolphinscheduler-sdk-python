@@ -29,8 +29,8 @@ __all__ = [
     "Base",
     "BaseSide",
     "Project",
+    "Queue",
     "Tenant",
     "User",
-    "Queue",
     "WorkerGroup",
 ]
