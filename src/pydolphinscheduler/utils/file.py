@@ -46,10 +46,7 @@ def write(
             raise ValueError(
                 "Parent directory do not exists and set param `create` to `False`."
             )
-    if not path.exists():
-        with path.open(mode="w") as f:
-            f.write(content)
-    elif overwrite:
+    if not path.exists() or overwrite:
         with path.open(mode="w") as f:
             f.write(content)
     else:

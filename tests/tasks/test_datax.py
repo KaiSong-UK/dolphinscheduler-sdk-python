@@ -138,7 +138,7 @@ def test_resources_local_datax_command_content(
 ):
     """Test task datax sql content through the local resource plug-in."""
     datax = DataX(**attr)
-    assert expect == getattr(datax, "sql")
+    assert expect == datax.sql
 
 
 @pytest.mark.parametrize(
@@ -173,7 +173,7 @@ def test_resources_local_custom_datax_command_content(
 ):
     """Test task CustomDataX json content through the local resource plug-in."""
     custom_datax = CustomDataX(**attr)
-    assert expect == getattr(custom_datax, "json")
+    assert expect == custom_datax.json
 
 
 @pytest.mark.parametrize(

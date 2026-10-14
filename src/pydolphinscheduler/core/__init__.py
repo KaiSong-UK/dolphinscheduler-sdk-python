@@ -23,6 +23,6 @@ from pydolphinscheduler.core.workflow import Workflow
 
 __all__ = [
     "Engine",
-    "Workflow",
     "Task",
+    "Workflow",
 ]

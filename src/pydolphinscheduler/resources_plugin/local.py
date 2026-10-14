@@ -44,7 +44,7 @@ class Local(ResourcePlugin):
         """
         path = Path(self.prefix).joinpath(suf)
         if not path.exists():
-            raise PyResPluginException(f"{str(path)} is not found")
+            raise PyResPluginException(f"{path!s} is not found")
         if not os.access(str(path), os.R_OK):
             raise PyResPluginException(
                 f"You don't have permission to access {self.prefix + suf}"

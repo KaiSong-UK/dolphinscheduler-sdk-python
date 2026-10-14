@@ -166,18 +166,17 @@ def test_http_params_deprecation_warning():
     with patch(
         "pydolphinscheduler.core.task.Task.gen_code_and_version",
         return_value=(code, version),
-    ):
-        with warnings.catch_warnings(record=True) as w:
-            Http(
-                name=name,
-                url="http://www.example.com",
-                http_method="GET",
-                http_params=http_params_list,
-            )
+    ), warnings.catch_warnings(record=True) as w:
+        Http(
+            name=name,
+            url="http://www.example.com",
+            http_method="GET",
+            http_params=http_params_list,
+        )
 
-            # Check if a deprecation warning is raised
-            assert len(w) == 1
-            assert issubclass(w[-1].category, DeprecationWarning)
-            assert "The `http_params` parameter currently accepts a dictionary" in str(
-                w[-1].message
-            )
+        # Check if a deprecation warning is raised
+        assert len(w) == 1
+        assert issubclass(w[-1].category, DeprecationWarning)
+        assert "The `http_params` parameter currently accepts a dictionary" in str(
+            w[-1].message
+        )
