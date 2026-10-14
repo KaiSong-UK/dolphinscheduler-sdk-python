@@ -473,7 +473,7 @@ class Task(Base):
     def add_in(
         self,
         name: str,
-        value: int | str | float | bool | BaseDataType | None = None,
+        value: str | float | bool | BaseDataType | None = None,
     ):
         """Add input parameters.
 
@@ -493,7 +493,7 @@ class Task(Base):
     def add_out(
         self,
         name: str,
-        value: int | str | float | bool | BaseDataType | None = None,
+        value: str | float | bool | BaseDataType | None = None,
     ):
         """Add output parameters.
 

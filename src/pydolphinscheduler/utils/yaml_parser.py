@@ -158,4 +158,4 @@ class YamlParser:
         return buf.getvalue()
 
     def __repr__(self) -> str:
-        return f"YamlParser({str(self)})"
+        return f"YamlParser({self!s})"
